@@ -1,0 +1,11 @@
+# Simulation outputs and logs
+*.vcd
+*.vvp
+*.log
+*.wlf
+transcript
+work/
+
+# OS generated files
+.DS_Store
+Thumbs.db
