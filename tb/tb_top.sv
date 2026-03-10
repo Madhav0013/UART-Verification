@@ -328,6 +328,8 @@ module tb_top;
     $display("T1: Reset test complete.\n");
 
     $display("\n===== T2: BASIC TX TEST =====");
+    $dumpfile("uart_rx_tx_wave.vcd");
+    $dumpvars(0, tb_top);
     send_tx(8'h55, 1'b0);
     send_tx(8'hA3, 1'b0);
     $display("T2: Basic TX test complete.\n");
@@ -336,6 +338,9 @@ module tb_top;
     send_rx(8'hA3, 1'b0, 0, 0);
     send_rx(8'h55, 1'b0, 0, 0);
     $display("T3: Basic RX test complete.\n");
+    
+    // Stop dumping to prevent massive file sizes and simulation hangs later in the run
+    $dumpoff;
 
     $display("\n===== T4: MULTIPLE TX TEST =====");
     send_tx(8'h00, 1'b0);
